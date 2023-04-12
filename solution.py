@@ -9,6 +9,6 @@ def solution(x: np.array, y: np.array) -> bool: # Одна или две выб�
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    res = mannwhitneyu(x, y, alternative="greater")
+    res = permutation_test((x, y),lambda x, y, axis: (np.mean(x, axis=axis) - np.mean(y, axis=axis))/np.sqrt(np.var(x, axis=axis) * np.var(y, axis=axis)),vectorized=True,n_resamples=1000,alternative="greater")
     Result = bool (res.pvalue<=0.09)
     return Result # Ваш ответ, True или False
