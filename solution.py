@@ -9,6 +9,6 @@ def solution(x: np.array, y: np.array) -> bool: # Одна или две выб�
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    res = mannwhitneyu(x, y, alternative="greater", method="exact")
+    res = mannwhitneyu(x, y, alternative="greater")
     Result = bool (res.pvalue<=0.09)
     return Result # Ваш ответ, True или False
